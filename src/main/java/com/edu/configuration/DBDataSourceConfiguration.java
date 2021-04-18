@@ -22,7 +22,6 @@ public class DBDataSourceConfiguration {
     private String database;
 
     @SuppressWarnings("DuplicatedCode")
-
     @Bean(name = "dbDataSource")
     public DataSource dbDataSource() {
         String url = "jdbc:mysql://"+ databaseConfig.getHost() + ":" + databaseConfig.getPort() +"/" + database + "?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
@@ -39,13 +38,13 @@ public class DBDataSourceConfiguration {
         return new DataSourceTransactionManager(dbDataSource());
     }
 
-    @Bean(name = "dbSqlSessionFactory")
-    public SqlSessionFactory dbSqlSessionFactory(@Qualifier("dbDataSource") DataSource clusterDataSource)
-            throws Exception {
-        final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
-        sessionFactory.setDataSource(clusterDataSource);
-        sessionFactory.getObject().getConfiguration().setMapUnderscoreToCamelCase(true);
-        return sessionFactory.getObject();
-    }
+//    @Bean(name = "dbSqlSessionFactory")
+//    public SqlSessionFactory dbSqlSessionFactory(@Qualifier("dbDataSource") DataSource clusterDataSource)
+//            throws Exception {
+//        final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
+//        sessionFactory.setDataSource(clusterDataSource);
+//        sessionFactory.getObject().getConfiguration().setMapUnderscoreToCamelCase(true);
+//        return sessionFactory.getObject();
+//    }
 
 }
