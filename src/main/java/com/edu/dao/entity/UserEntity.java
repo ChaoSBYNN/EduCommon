@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * create table user
@@ -34,6 +35,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@ToString
 @TableName(value = "user")//指定表名
 public class UserEntity {
 

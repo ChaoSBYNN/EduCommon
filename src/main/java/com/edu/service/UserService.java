@@ -1,5 +1,8 @@
 package com.edu.service;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.edu.dao.entity.UserEntity;
 import com.edu.dao.mapper.UserMapper;
 import org.springframework.stereotype.Service;
 
@@ -17,4 +20,9 @@ public class UserService {
 
     @Resource(name = "userMapper")
     private UserMapper userMapper;
+
+    public UserEntity getUser(UserEntity userCondition){
+        Wrapper<UserEntity> wrapper = new QueryWrapper<UserEntity>(userCondition);
+        return userMapper.selectOne(wrapper);
+    }
 }

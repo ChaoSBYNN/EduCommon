@@ -111,7 +111,7 @@ public class MybatisPlusConfig {
 
             @Override
             public String getTenantIdColumn() {
-                return "tenant_id";
+                return "id";
             }
 
             @Override
