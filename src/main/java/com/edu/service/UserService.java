@@ -22,7 +22,7 @@ public class UserService {
     private UserMapper userMapper;
 
     public UserEntity getUser(UserEntity userCondition){
-        Wrapper<UserEntity> wrapper = new QueryWrapper<UserEntity>(userCondition);
+        Wrapper<UserEntity> wrapper = new QueryWrapper<>(userCondition);
         return userMapper.selectOne(wrapper);
     }
 }

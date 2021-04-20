@@ -1,5 +1,9 @@
 package com.edu.service;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.edu.dao.entity.SchoolClassEntity;
+import com.edu.dao.entity.SchoolEntity;
 import com.edu.dao.mapper.SchoolMapper;
 import com.edu.dao.mapper.UserMapper;
 import org.springframework.stereotype.Service;
@@ -18,4 +22,9 @@ public class SchoolService {
 
     @Resource(name = "schoolMapper")
     private SchoolMapper schoolMapper;
+
+    public SchoolEntity getSchool(SchoolEntity userCondition){
+        Wrapper<SchoolEntity> wrapper = new QueryWrapper<>(userCondition);
+        return schoolMapper.selectOne(wrapper);
+    }
 }
