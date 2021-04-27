@@ -7,36 +7,39 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * @ClassName SchoolClass
+ * @ClassName UserClassEntity
  * @Descripion TODO
  * @Author ChaoS_Zhang t7_chaos@163.com
- * @Date 2021/4/19 上午11:45
+ * @Date 2021/4/27 上午11:24
  * @Version 1.0
- * create table school_class
+ * create table user_class
  * (
  * 	id int auto_increment
  * 		primary key,
+ * 	uid varchar(32) null,
  * 	sid varchar(32) null,
- * 	cid varchar(32) null,
- * 	times int null,
- * 	type int null,
+ * 	aid varchar(32) null,
+ * 	name varchar(32) null,
  * 	`desc` text null,
- * 	tid varchar(32) null
+ * 	status int null,
+ * 	stage int null,
+ * 	times int null,
+ * 	type int null
  * );
  **/
 @Getter
 @Setter
-@TableName(value = "school_class")//指定表名
-public class SchoolClassEntity {
-
-    //value与数据库主键列名一致，若实体类属性名与表主键列名一致可省略value
+@TableName(value = "user_class")//
+public class UserClassEntity {
     @TableId(value = "id",type = IdType.AUTO)//指定自增策略
     private Integer id;
     private String sid;
     private String aid;
+    private String uid;
     private String cid;
-    private Integer times; // 课时 TODO N期
-    private Integer type;
+    private String name;
     private String desc;
-    private String tid;
+    private Integer status;
+    private Integer times;
+    private Integer type;
 }
