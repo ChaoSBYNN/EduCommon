@@ -3,9 +3,7 @@ package com.edu.service;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.edu.dao.entity.SchoolClassEntity;
-import com.edu.dao.entity.UserEntity;
 import com.edu.dao.mapper.SchoolClassMapper;
-import com.edu.dao.mapper.UserMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -33,5 +31,13 @@ public class ClassService {
     public List<SchoolClassEntity> getClassList(SchoolClassEntity userCondition){
         Wrapper<SchoolClassEntity> wrapper = new QueryWrapper<>(userCondition);
         return schoolClassMapper.selectList(wrapper);
+    }
+
+    public int createClass(SchoolClassEntity create) {
+        return schoolClassMapper.insert(create);
+    }
+
+    public int updateClass(SchoolClassEntity create) {
+        return schoolClassMapper.updateById(create);
     }
 }
